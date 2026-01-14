@@ -171,6 +171,7 @@ class _ImageViewerState extends State<ImageViewer>
   @override
   void dispose() {
     widget.controller._unbind();
+    _transformationController?.dispose();
     _transformationController = null;
     _animationController.dispose();
     super.dispose();

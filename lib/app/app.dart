@@ -151,6 +151,14 @@ class _ImageBrowserScreenState extends State<ImageBrowserScreen> {
     _loadedSample = true;
   }
 
+  void _returnToStart() {
+    setState(() {
+      _currentImage = null;
+      _showPre = false;
+      _showNext = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,6 +177,7 @@ class _ImageBrowserScreenState extends State<ImageBrowserScreen> {
             onResetFit: _toggleResetToFit,
             onPickFiles: _pickImage,
             onLoadSample: _loadSample,
+            onReturnToStart: _returnToStart,
           ),
           Expanded(
             child: DropTarget(

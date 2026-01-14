@@ -10,7 +10,7 @@ void main() async {
 }
 
 void configWindow () async {
-  PaintingBinding.instance.imageCache.maximumSize = 1;
+  PaintingBinding.instance.imageCache.maximumSize = 0;
   PaintingBinding.instance.imageCache.maximumSizeBytes = 1;
 
   await windowManager.restore();

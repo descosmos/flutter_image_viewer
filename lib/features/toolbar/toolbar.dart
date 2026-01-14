@@ -18,6 +18,7 @@ class AppToolbar extends StatelessWidget {
     required this.onResetFit,
     required this.onPickFiles,
     required this.onLoadSample,
+    required this.onReturnToStart,
   }) : super(key: key);
 
   final ImageModel? image;
@@ -32,6 +33,8 @@ class AppToolbar extends StatelessWidget {
   final VoidCallback onResetFit;
   final VoidCallback onPickFiles;
   final VoidCallback onLoadSample;
+  final VoidCallback onReturnToStart;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +46,19 @@ class AppToolbar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Expanded(
-            flex: 1,
-            child: SizedBox.shrink(),
-          ),
+          Expanded(
+             flex: 1,
+            child: Row(
+              children: [
+                ToolbarButton(
+                  icon: Icons.arrow_back,
+                  onPressed: image != null ? onReturnToStart : null,
+                  tooltip: "返回首页",
+                ),
+                const Spacer(),
+              ],
+            ),
+           ),
           Expanded(
             flex: 1,
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [

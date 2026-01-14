@@ -26,8 +26,8 @@ class _ImageWrapperState extends State<ImageWrapper> {
 
   @override
   void initState() {
-    _createOrDestoryTextureIfNeeded();
     super.initState();
+    _createOrDestoryTextureIfNeeded();
   }
 
   @override
@@ -48,7 +48,8 @@ class _ImageWrapperState extends State<ImageWrapper> {
 
   Future<void> _createOrDestoryTextureIfNeeded() async {
     if (_textureId != null) {
-       await _channel.invokeMethod<void>('dispose');
+      //  await _channel.invokeMethod<void>('dispose');
+       await _channel.invokeMethod<void>('dispose', _textureId);
        _textureId = null;
     }
 
